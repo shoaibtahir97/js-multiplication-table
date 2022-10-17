@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Multiplication Table</title>
+    <style>
+        body{
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            box-sizing: border-box;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>Multiplication Table</h1>
+
+    <input type="number" name="" id="input" placeholder="Enter Number"> <br><br>
+    <input type="number" name="" id="length" placeholder="Enter Length"> <br> <br>
+    <button id="btn" onclick="showTable(this)">Create Table</button>
+    <button><a href="index.html">New Table</a></button>
+
+    <br> <br>
+    <table border="1">
+        <thead>
+            <tr>
+                <td>Multiplication Numbers</td>
+                <td>Result</td>
+            </tr>
+
+        </thead>
+        <tbody id="tbody">
+
+        </tbody>
+
+    </table>
+
+    <script>
+
+        function showTable(btn) {
+            const input = document.querySelector("#input").value;
+            const length = Number(document.querySelector("#length").value);
+            const tbody = document.querySelector("#tbody");
+            
+            if(input != "" && length != ""){
+                document.getElementById("btn").disabled = true
+            }
+
+
+            for (let i = 1; i < length + 1; i++) {
+                let result = input * i;
+                let tr = document.createElement("tr");
+                tr.innerHTML = `
+                <td>${input} x ${i} =</td>
+                <td>${result}</td>
+                `
+                tbody.appendChild(tr);
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
